@@ -18,7 +18,16 @@ sudo chgrp pcap [path_to_mtracecap_executable]
 sudo setcap cap_net_raw,cap_net_admin=eip [path_to_mtracecap_executable]
 ```
 
-# Examples
+# Usage
+Under the hood Libtrace is used. Input and output sources are specified using URIs which describe both the format and 
+location of the trace
+For example, `pcapfile:sample.pcap.gz` describes the PCAP trace file called sample.pcap.gz. `dag:/dev/dag0`
+describes the DAG device present at /dev/dag0. `int:eth0` is the URI for the Linux interface eth0. 
+
+Also note that
+latest Libtrace supports `ring:eth0` (provides much better performance than int).
+ 
+## Examples
 Capture network traffic from network interface `eth0` to file `test.pcap`:
 ```
 mtracecap pcapfile:test.pcap ring:eth0
