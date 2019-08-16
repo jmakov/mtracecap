@@ -10,6 +10,14 @@ All compression would be done in a separate process, thus increasing total throu
 # Dependencies
 This package requires Libtrace version 4 or later (https://github.com/LibtraceTeam/libtrace)
 
+## Running without root
+```
+sudo groupadd pcap
+sudo usermod -a -G pcap $USER
+sudo chgrp pcap [path_to_mtracecap_executable]
+sudo setcap cap_net_raw,cap_net_admin=eip [path_to_mtracecap_executable]
+```
+
 # Usage
 ```
 mtracecap flags outputuri traceuri [traceuri...]
