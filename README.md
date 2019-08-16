@@ -18,7 +18,13 @@ sudo chgrp pcap [path_to_mtracecap_executable]
 sudo setcap cap_net_raw,cap_net_admin=eip [path_to_mtracecap_executable]
 ```
 
-# Usage
+# Examples
+Capture network traffic from network interface `eth0` to file `test.pcap`:
+```
+mtracecap pcapfile:test.pcap ring:eth0
+```
+
+## Options
 ```
 mtracecap flags outputuri traceuri [traceuri...]
   or
@@ -57,3 +63,6 @@ where flags are:
 [--pipeout=<command>]
     Pipe output through <command> first
 ```
+
+## Supported Trace Formats
+https://github.com/LibtraceTeam/libtrace/wiki/Supported-Trace-Formats
